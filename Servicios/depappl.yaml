@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appm
+  labels:
+    tipo: appsweb
+    estado: "1"
+spec:
+  selector:
+    matchLabels:
+      app: webapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: appm
+        image: aideeds/appmaq
+        ports:
+        - containerPort: 80
